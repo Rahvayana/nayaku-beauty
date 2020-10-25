@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('treatments',[TreatmentController::class,'index'])->name('treatments');
+    Route::get('TambahTreatments',[TreatmentController::class,'add'])->name('add-treatments');
+});
