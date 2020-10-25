@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    //Treatments
     Route::get('treatments',[TreatmentController::class,'index'])->name('treatments');
     Route::get('TambahTreatments',[TreatmentController::class,'add'])->name('add-treatments');
+    Route::post('SimpanTreatments',[TreatmentController::class,'store'])->name('insert-treatments');
+
+    //Complaints
+    Route::get('complaints',[ComplaintController::class,'index'])->name('complaints');
+    Route::get('TambahComplaints',[ComplaintController::class,'add'])->name('add-complaints');
+    Route::post('SimpanComplaint',[ComplaintController::class,'store'])->name('insert-complaints');
+
 });

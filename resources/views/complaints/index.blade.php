@@ -14,21 +14,21 @@
           <div class="col-md-12">
             <div class="box">
               <div class="box-header">
-                <a href="{{ route('add-treatments') }}" class="btn btn-success"><h3 class="box-title">Tambah Perawatan</h3></a>
+                <a href="{{ route('add-complaints') }}" class="btn btn-success"><h3 class="box-title">Tambah Komplain</h3></a>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-bordered">
                   <tr>
                     <th style="width: 10px">#</th>
+                    <th>Keluhan</th>
                     <th>Perawatan</th>
-                    <th>Kode Perawatan</th>
                     <th style="width: 40px">Action</th>
                   </tr>
-                  @foreach ($treatments as $treatment)
+                  @foreach ($complaints as $complaint)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$treatment->nama}}</td>
-                    <td>{{$treatment->kd_treatment}}</td>
+                    <td>{{$complaint->kd_treatment}}</td>
+                    <td>{{$complaint->keluhan}}</td>
                     <td style="display: flex"><span class="badge bg-blue"><i class="fa fa-trash-o"></i></span> &nbsp;<span class="badge bg-red"><i class="fa fa-upload"></i></span></td>
                   </tr>
                   @endforeach

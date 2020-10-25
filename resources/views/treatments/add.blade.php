@@ -17,15 +17,16 @@
               <h3 class="box-title">Tambah Treatment</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" method="POST" action="{{ route('insert-treatments') }}">
               <div class="box-body">
+                @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Perawatan</label>
-                  <input type="perawatan" class="form-control" id="perawatan" placeholder="Masukkan Perawatan">
+                  <input name="perawatan" type="text" class="form-control" id="perawatan" placeholder="Masukkan Perawatan">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Kode Perawatan</label>
-                  <input type="kd_perawatan" class="form-control" id="ekd_perawatan" placeholder="Kode Perawatan">
+                  <input name="kd_perawatan" type="text" class="form-control" id="ekd_perawatan" placeholder="Kode Perawatan">
                 </div>
               </div><!-- /.box-body -->
     

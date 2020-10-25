@@ -310,13 +310,13 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
             <a href="{{ route('treatments') }}">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-heart"></i>
                 <span>Treatments</span>
             </a>
             </li>
             <li>
-            <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+            <a href="{{ route('complaints') }}">
+                <i class="fa  fa-times"></i> <span>Complaints</span>
             </a>
             </li>
             <li class="treeview">
