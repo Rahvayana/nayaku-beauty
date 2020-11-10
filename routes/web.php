@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('TambahComplaints',[ComplaintController::class,'add'])->name('add-complaints');
     Route::post('SimpanComplaint',[ComplaintController::class,'store'])->name('insert-complaints');
 
+    //Products
+    Route::get('products',[ProductController::class,'index'])->name('products');
+    Route::get('TambahProducts',[ProductController::class,'add'])->name('add-products');
+    Route::post('SimpanProducts',[ProductController::class,'store'])->name('insert-products');
 });

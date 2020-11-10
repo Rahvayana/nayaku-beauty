@@ -318,6 +318,9 @@
             <a href="{{ route('complaints') }}">
                 <i class="fa  fa-times"></i> <span>Complaints</span>
             </a>
+            <a href="{{ route('products') }}">
+                <i class="fa  fa-shopping-cart"></i> <span>Products</span>
+            </a>
             </li>
             <li class="treeview">
             <a href="#">
@@ -379,6 +382,7 @@
 
     <!-- jQuery 2.1.3 -->
     <script src="plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <!-- jQuery UI 1.11.2 -->
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

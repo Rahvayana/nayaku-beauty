@@ -20,14 +20,14 @@
                 <table class="table table-bordered">
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Keluhan</th>
                     <th>Perawatan</th>
+                    <th>Keluhan</th>
                     <th style="width: 40px">Action</th>
                   </tr>
                   @foreach ($complaints as $complaint)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$complaint->kd_treatment}}</td>
+                    <td colspan="3">{{$complaint->nama}}</td>
                     <td>{{$complaint->keluhan}}</td>
                     <td style="display: flex"><span class="badge bg-blue"><i class="fa fa-trash-o"></i></span> &nbsp;<span class="badge bg-red"><i class="fa fa-upload"></i></span></td>
                   </tr>
