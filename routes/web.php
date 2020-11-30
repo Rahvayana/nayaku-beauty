@@ -30,11 +30,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('treatments',[TreatmentController::class,'index'])->name('treatments');
     Route::get('TambahTreatments',[TreatmentController::class,'add'])->name('add-treatments');
     Route::post('SimpanTreatments',[TreatmentController::class,'store'])->name('insert-treatments');
+    Route::get('EditTreatment/{id}',[TreatmentController::class,'edit'])->name('edit-treatments');
+    Route::post('SaveTreatment/{id}',[TreatmentController::class,'save'])->name('save-treatments');
+    Route::post('deleteTreatment/{id}',[TreatmentController::class,'delete'])->name('delete');
 
     //Complaints
     Route::get('complaints',[ComplaintController::class,'index'])->name('complaints');
     Route::get('TambahComplaints',[ComplaintController::class,'add'])->name('add-complaints');
     Route::post('SimpanComplaint',[ComplaintController::class,'store'])->name('insert-complaints');
+    Route::get('EditComplaint/{id}',[ComplaintController::class,'edit'])->name('edit-complaints');
+    Route::post('SaveComplaint/{id}',[ComplaintController::class,'save'])->name('save-complaints');
+    Route::post('deleteComplaint/{id}',[ComplaintController::class,'delete'])->name('delete-complaint');
+
 
     //Products
     Route::get('products',[ProductController::class,'index'])->name('products');
