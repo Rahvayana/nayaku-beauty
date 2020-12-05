@@ -322,7 +322,7 @@
                 <i class="fa  fa-shopping-cart"></i> <span>Products</span>
             </a>
             <a href="{{ route('history') }}">
-                <i class="fa  fa-shopping-cart"></i> <span>History</span>
+                <i class="fa  fa-history"></i> <span>History</span>
             </a>
             </li>
         </ul>
