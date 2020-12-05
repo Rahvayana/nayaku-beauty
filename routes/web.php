@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
@@ -47,4 +48,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('products',[ProductController::class,'index'])->name('products');
     Route::get('TambahProducts',[ProductController::class,'add'])->name('add-products');
     Route::post('SimpanProducts',[ProductController::class,'store'])->name('insert-products');
+
+    //History
+    Route::get('history',[HistoryController::class,'index'])->name('history');
+    Route::get('lihatHistory/{id}',[HistoryController::class,'detail'])->name('history-detail');
 });

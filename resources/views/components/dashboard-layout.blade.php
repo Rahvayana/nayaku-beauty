@@ -321,6 +321,9 @@
             <a href="{{ route('products') }}">
                 <i class="fa  fa-shopping-cart"></i> <span>Products</span>
             </a>
+            <a href="{{ route('history') }}">
+                <i class="fa  fa-shopping-cart"></i> <span>History</span>
+            </a>
             </li>
         </ul>
         </section>
