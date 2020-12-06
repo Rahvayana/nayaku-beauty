@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TipsController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +54,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //History
     Route::get('history',[HistoryController::class,'index'])->name('history');
     Route::get('lihatHistory/{id}',[HistoryController::class,'detail'])->name('history-detail');
+
+    //Tips
+    Route::get('tips',[TipsController::class,'index'])->name('tips');
+    Route::get('Tambahtips',[TipsController::class,'create'])->name('add-tips');
+    Route::post('Simpantips',[TipsController::class,'store'])->name('insert-tips');
+    Route::get('Lihattips/{id}',[TipsController::class,'show'])->name('lihat-tips');
+
+    //Contacts
+    Route::get('contacts',[ContactController::class,'index'])->name('contacts');
+    Route::get('Tambahcontacts',[ContactController::class,'create'])->name('add-contacts');
+    Route::post('Simpancontacts',[ContactController::class,'store'])->name('insert-contacts');
+    Route::get('Lihatcontacts/{id}',[ContactController::class,'show'])->name('lihat-contacts');
 });

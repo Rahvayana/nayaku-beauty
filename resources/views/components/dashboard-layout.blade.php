@@ -324,6 +324,12 @@
             <a href="{{ route('history') }}">
                 <i class="fa  fa-history"></i> <span>History</span>
             </a>
+            <a href="{{ route('tips') }}">
+                <i class="fa  fa-book"></i> <span>Tips</span>
+            </a>
+            <a href="{{ route('contacts') }}">
+                <i class="fa fa-cog"></i> <span>Contacts</span>
+            </a>
             </li>
         </ul>
         </section>
