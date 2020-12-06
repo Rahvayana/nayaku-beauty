@@ -14,6 +14,28 @@
           <div class="col-md-12">
             <div class="box">
               <div class="box-header">
+                <form action="{{ route('history') }}" method="GET" style="display: flex">
+                  <select name="type" id="type" class="form-control">
+                    @if (isset($_GET['type'])&&$_GET['type']==null)
+                      <option value="" selected>Semua Konsultasi</option>
+                      <option value="0">Konsultasi Perawatan</option>
+                      <option value="1">Konsultasi Produk</option>
+                    @elseif(isset($_GET['type'])&&$_GET['type']==0)
+                    <option value="">Semua Konsultasi</option>
+                      <option value="0" selected>Konsultasi Perawatan</option>
+                      <option value="1">Konsultasi Produk</option>
+                    @elseif(isset($_GET['type'])&&$_GET['type']==1)
+                      <option value="">Semua Konsultasi</option>
+                      <option value="0">Konsultasi Perawatan</option>
+                      <option value="1" selected>Konsultasi Produk</option>
+                    @else
+                    <option value="">Semua Konsultasi</option>
+                    <option value="0">Konsultasi Perawatan</option>
+                    <option value="1">Konsultasi Produk</option>
+                    @endif
+                  </select>
+                  <input type="submit" name="submit" class="btn btn-success"/>
+                </form>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-bordered">
@@ -21,7 +43,7 @@
                     <th style="width: 10px">#</th>
                     <th>Nama</th>
                     <th>Keluhan</th>
-                    <th>Perawatan</th>
+                    <th>Perawatan/Produk</th>
                     <th>Tanggal</th>
                     <th style="width: 40px">Action</th>
                   </tr>
