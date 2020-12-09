@@ -4,6 +4,7 @@ use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RuleController;
 use App\Http\Controllers\TipsController;
 use App\Http\Controllers\TreatmentController;
 use Illuminate\Support\Facades\Route;
@@ -66,4 +67,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('Tambahcontacts',[ContactController::class,'create'])->name('add-contacts');
     Route::post('Simpancontacts',[ContactController::class,'store'])->name('insert-contacts');
     Route::get('Lihatcontacts/{id}',[ContactController::class,'show'])->name('lihat-contacts');
+
+    //Contacts
+    Route::get('rules',[RuleController::class,'index'])->name('rules');
+    Route::get('Tambahrules',[RuleController::class,'create'])->name('add-rules');
+    Route::post('Simpanrules',[RuleController::class,'store'])->name('insert-rules');
+    Route::get('Lihatrules/{id}',[RuleController::class,'show'])->name('lihat-rules');
 });

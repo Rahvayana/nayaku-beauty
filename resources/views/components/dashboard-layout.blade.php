@@ -330,6 +330,9 @@
             <a href="{{ route('contacts') }}">
                 <i class="fa fa-cog"></i> <span>Contacts</span>
             </a>
+            <a href="{{ route('rules') }}">
+                <i class="fa fa-clipboard"></i> <span>Rules</span>
+            </a>
             </li>
         </ul>
         </section>

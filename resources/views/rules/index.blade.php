@@ -2,34 +2,38 @@
     <section class="content-header">
         <h1>
           Dashboard
-          <small>Treatments</small>
+          <small>Rules</small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">complaints</li>
+          <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Rules</li>
         </ol>
       </section>
       <section class="content">
         <div class="row">
           <div class="col-md-12">
             <div class="box">
-              <div class="box-header">
-                <a href="{{ route('add-complaints') }}" class="btn btn-success"><h3 class="box-title">Tambah Komplain</h3></a>
-              </div><!-- /.box-header -->
+                <div class="box-header">
+                    <a href="{{ route('add-rules') }}" class="btn btn-success"><h3 class="box-title">Tambah Rules</h3></a>
+                </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-bordered">
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Perawatan</th>
-                    <th>Keluhan</th>
+                    <th>Kode Rule</th>
+                    <th>Rule 1</th>
+                    <th>Rule 2</th>
+                    <th>Rule 3</th>
                     <th style="width: 40px">Action</th>
                   </tr>
-                  @foreach ($complaints as $complaint)
+                  @foreach ($rules as $rule)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$complaint->nama}}</td>
-                    <td>{{$complaint->keluhan}}</td>
-                    <td style="display: flex"><a href="{{ route('edit-complaints', $complaint->id) }}"><span class="badge bg-blue"><i class="fa fa-upload"></i></span></a> &nbsp;<a href="#" data-toggle="modal" data-record-id="{{ $complaint->id }}" data-target="#confirm-delete"><span class="badge bg-red"><i class="fa fa-trash-o"></i></span></a></td>
+                    <td style="background-color: #f5429b">{{$rule->kd_rule}}</td>
+                    <td>{{$rule->rule1}}</td>
+                    <td>{{$rule->rule2}}</td>
+                    <td>{{$rule->rule3}}</td>
+                    <td style="display: flex"><a href="{{ route('lihat-rules', $rule->id) }}"><span class="badge bg-blue"><i class="fa fa-eye"></i></span></a> </td>
                   </tr>
                   @endforeach
                 </table>
@@ -79,7 +83,7 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
       });
-      $.post('/deleteComplaint/' + id).then()
+      $.post('/deleteTreatment/' + id).then()
       $modalDiv.addClass('loading');
       setTimeout(function() {
           $modalDiv.modal('hide').removeClass('loading');
