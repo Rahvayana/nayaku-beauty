@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 class ProductController extends Controller
@@ -47,5 +48,13 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('products');
+    }
+    public function delete($id)
+    {
+        DB::table('products')->where('id', $id)->delete();
+        return response()->json([
+            'status'=>200,
+            'message'=>'Sukses',
+        ]);
     }
 }

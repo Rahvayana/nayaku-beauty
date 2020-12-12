@@ -51,6 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('products',[ProductController::class,'index'])->name('products');
     Route::get('TambahProducts',[ProductController::class,'add'])->name('add-products');
     Route::post('SimpanProducts',[ProductController::class,'store'])->name('insert-products');
+    Route::post('DeleteProducts/{id}',[ProductController::class,'delete'])->name('delete-products');
 
     //History
     Route::get('history',[HistoryController::class,'index'])->name('history');

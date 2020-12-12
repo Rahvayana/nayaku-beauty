@@ -45,9 +45,11 @@ class RuleController extends Controller
     {
         $rule=new Rule();
         $rule->kd_rule=$request->kd_rule;
+        $rule->hasil=$request->kulit;
         $rule->rule1=$request->rule1;
         $rule->rule2=$request->rule2;
         $rule->rule3=$request->rule3;
+        $rule->rule4=$request->hasil;
         $rule->save();
         return redirect()->route('rules');
     }

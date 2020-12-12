@@ -25,6 +25,16 @@
                     <input type="text" name="kd_rule" id="kd_rule" class="form-control">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputEmail1">Kulit</label>
+                    <select name="kulit" id="kulit" class="form-control">
+                      <option value="">Pilih Kulit</option>
+                      <option value="1">Kulit Normal</option>
+                      <option value="2">Kulit Sensitif</option>
+                      <option value="3">Kulit Kering</option>
+                      <option value="4">Kulit Berminyak</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Rule 1</label>
                     <select name="rule1" id="rule1" class="form-control">
                       <option value="">Pilih Rule</option>
