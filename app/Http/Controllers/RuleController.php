@@ -96,6 +96,10 @@ class RuleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('rules')->where('id', $id)->delete();
+        return response()->json([
+            'status'=>200,
+            'message'=>'Sukses',
+        ]);
     }
 }

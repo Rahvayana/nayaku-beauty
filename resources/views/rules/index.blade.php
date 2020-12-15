@@ -47,7 +47,7 @@
                     <td>{{$rule->rule2}}</td>
                     <td>{{$rule->rule3}}</td>
                     <td>{{$rule->rule4}}</td>
-                    <td style="display: flex"><a href="{{ route('lihat-rules', $rule->id) }}"><span class="badge bg-blue"><i class="fa fa-eye"></i></span></a> </td>
+                    <td style="display: flex"><a href="#" data-toggle="modal" data-record-id="{{ $rule->id }}" data-target="#confirm-delete"><span class="badge bg-red"><i class="fa fa-trash-o"></i></span></a> </td>
                   </tr>
                   @endforeach
                 </table>
@@ -97,7 +97,7 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
       });
-      $.post('/deleteTreatment/' + id).then()
+      $.post('/Deleterules/' + id).then()
       $modalDiv.addClass('loading');
       setTimeout(function() {
           $modalDiv.modal('hide').removeClass('loading');

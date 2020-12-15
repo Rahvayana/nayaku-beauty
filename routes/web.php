@@ -74,4 +74,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('Tambahrules',[RuleController::class,'create'])->name('add-rules');
     Route::post('Simpanrules',[RuleController::class,'store'])->name('insert-rules');
     Route::get('Lihatrules/{id}',[RuleController::class,'show'])->name('lihat-rules');
+    Route::post('Deleterules/{id}',[RuleController::class,'destroy'])->name('delete-rules');
 });
