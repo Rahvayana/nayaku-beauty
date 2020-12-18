@@ -7,6 +7,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\TipsController;
 use App\Http\Controllers\TreatmentController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    if(Auth::user()->role=='admin'){
+        return view('dashboard');
+    }else{
+        return redirect()->route('hasil-konsul');
+    }
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -77,4 +83,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('Simpanrules',[RuleController::class,'store'])->name('insert-rules');
     Route::get('Lihatrules/{id}',[RuleController::class,'show'])->name('lihat-rules');
     Route::post('Deleterules/{id}',[RuleController::class,'destroy'])->name('delete-rules');
+    
+    Route::get('hasilKonsul',[RuleController::class,'hasil'])->name('hasil-konsul');
+
 });

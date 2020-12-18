@@ -102,4 +102,9 @@ class RuleController extends Controller
             'message'=>'Sukses',
         ]);
     }
+
+    public function hasil()
+    {
+        return view('konsul.index');
+    }
 }

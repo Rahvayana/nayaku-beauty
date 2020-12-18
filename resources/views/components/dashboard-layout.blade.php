@@ -111,30 +111,35 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
-            <a href="{{ route('treatments') }}">
-                <i class="fa fa-heart"></i>
-                <span>Treatments</span>
-            </a>
             </li>
             <li>
-            <a href="{{ route('complaints') }}">
-                <i class="fa  fa-times"></i> <span>Complaints</span>
-            </a>
-            <a href="{{ route('products') }}">
-                <i class="fa  fa-shopping-cart"></i> <span>Products</span>
-            </a>
-            <a href="{{ route('history') }}">
-                <i class="fa  fa-history"></i> <span>History</span>
-            </a>
-            <a href="{{ route('tips') }}">
-                <i class="fa  fa-book"></i> <span>Tips</span>
-            </a>
-            <a href="{{ route('contacts') }}">
-                <i class="fa fa-cog"></i> <span>Contacts</span>
-            </a>
-            <a href="{{ route('rules') }}">
-                <i class="fa fa-clipboard"></i> <span>Rules</span>
-            </a>
+              @if (Auth::user()->role=='admin')
+              <a href="{{ route('treatments') }}">
+                  <i class="fa fa-heart"></i>
+                  <span>Treatments</span>
+              </a>
+              <a href="{{ route('complaints') }}">
+                  <i class="fa  fa-times"></i> <span>Complaints</span>
+              </a>
+              <a href="{{ route('products') }}">
+                  <i class="fa  fa-shopping-cart"></i> <span>Products</span>
+              </a>
+              <a href="{{ route('history') }}">
+                  <i class="fa  fa-history"></i> <span>History</span>
+              </a>
+              <a href="{{ route('tips') }}">
+                  <i class="fa  fa-book"></i> <span>Tips</span>
+              </a>
+              <a href="{{ route('contacts') }}">
+                  <i class="fa fa-cog"></i> <span>Contacts</span>
+              </a>
+              <a href="{{ route('rules') }}">
+                  <i class="fa fa-clipboard"></i> <span>Rules</span>
+              </a>                  
+              @endif
+              <a href="{{ route('hasil-konsul') }}">
+                  <i class="fa fa-clipboard"></i> <span>Hasil Konsul</span>
+              </a>                  
             </li>
         </ul>
         </section>
