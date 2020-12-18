@@ -50,6 +50,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //Products
     Route::get('products',[ProductController::class,'index'])->name('products');
     Route::get('TambahProducts',[ProductController::class,'add'])->name('add-products');
+    Route::get('EditProducts/{id}',[ProductController::class,'edit'])->name('edit-product');
+    Route::post('UpdateProducts/{id}',[ProductController::class,'update'])->name('update-product');
     Route::post('SimpanProducts',[ProductController::class,'store'])->name('insert-products');
     Route::post('DeleteProducts/{id}',[ProductController::class,'delete'])->name('delete-products');
 

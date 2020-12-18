@@ -49,6 +49,48 @@ class ProductController extends Controller
 
         return redirect()->route('products');
     }
+
+    public function edit($id)
+    {
+        $data['product']=Products::find($id);
+        return view('products.edit',$data);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $validatedData = $request->validate([
+            'produk' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required'
+        ]);
+
+        if($request->file('foto')!=null){
+            $image = $request->file('foto');
+            $input['imagename'] = time().'.'.$image->extension();     
+            $destinationPath = public_path('/thumbnail');
+            $img = Image::make($image->path());
+            $img->resize(100, 100, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$input['imagename']);
+    
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $input['imagename']);
+
+        }
+        
+        $product = new Products();
+        $product=Products::find($id);
+        $product->nama=$request->produk;
+        if($request->file('foto')!=null){
+            $product->foto=$input['imagename'];
+        }
+        $product->deskripsi=$request->deskripsi;
+        $product->harga=$request->harga;
+        $product->save();
+
+        return redirect()->route('products');
+    }
+
     public function delete($id)
     {
         DB::table('products')->where('id', $id)->delete();

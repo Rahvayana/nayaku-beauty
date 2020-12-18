@@ -30,8 +30,11 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$product->nama}}</td>
                     <td><img src="thumbnail/{{$product->foto}}" alt=""></td>
-                    <td>{{$product->harga}}</td>
-                    <td style="display: flex"><span class="badge bg-blue"><i class="fa fa-upload"></i></span> &nbsp;<a href="#" data-toggle="modal" data-record-id="{{ $product->id }}" data-target="#confirm-delete"><span class="badge bg-red"><i class="fa fa-trash-o"></i></span></a></td>
+                    <td>Rp. {{number_format($product->harga,2)}}</td>
+                    <td style="display: flex">
+                      <a href="{{ route('edit-product',$product->id) }}"><span class="badge bg-red"><i class="fa fa-upload"></i></span></a>
+                      <a href="#" data-toggle="modal" data-record-id="{{ $product->id }}" data-target="#confirm-delete"><span class="badge bg-blue"><i class="fa fa-trash-o"></i></span></a>
+                    </td>
                   </tr>
                   @endforeach
                 </table>
