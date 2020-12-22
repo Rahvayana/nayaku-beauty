@@ -29,7 +29,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$product->nama}}</td>
-                    <td><img src="thumbnail/{{$product->foto}}" alt=""></td>
+                    <td><img src="{{$product->foto}}" alt="" width="20%"></td>
                     <td>Rp. {{number_format($product->harga,2)}}</td>
                     <td style="display: flex">
                       <a href="{{ route('edit-product',$product->id) }}"><span class="badge bg-red"><i class="fa fa-upload"></i></span></a>

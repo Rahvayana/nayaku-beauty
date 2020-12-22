@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Image;
 
 class ProductController extends Controller
@@ -30,19 +31,13 @@ class ProductController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $image = $request->file('foto');
-        $input['imagename'] = time().'.'.$image->extension();     
-        $destinationPath = public_path('/thumbnail');
-        $img = Image::make($image->path());
-        $img->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['imagename']);
-   
-        $destinationPath = public_path('/images');
-        $image->move($destinationPath, $input['imagename']);
+        $input['imagename'] = time().'.'.$image->extension();
+        $normal = Image::make($image)->resize(100, 100)->encode($image->extension());
+        Storage::disk('s3')->put('/images/'.$input['imagename'], (string)$normal, 'public');
 
         $product = new Products();
         $product->nama=$request->produk;
-        $product->foto=$input['imagename'];
+        $product->foto="https://lizartku.s3.us-east-2.amazonaws.com/images/".$input['imagename'];
         $product->deskripsi=$request->deskripsi;
         $product->harga=$request->harga;
         $product->save();
@@ -66,15 +61,9 @@ class ProductController extends Controller
 
         if($request->file('foto')!=null){
             $image = $request->file('foto');
-            $input['imagename'] = time().'.'.$image->extension();     
-            $destinationPath = public_path('/thumbnail');
-            $img = Image::make($image->path());
-            $img->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$input['imagename']);
-    
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $input['imagename']);
+            $input['imagename'] = time().'.'.$image->extension();
+            $normal = Image::make($image)->resize(100, 100)->encode($image->extension());
+            Storage::disk('s3')->put('/images/'.$input['imagename'], (string)$normal, 'public');
 
         }
         
@@ -82,7 +71,7 @@ class ProductController extends Controller
         $product=Products::find($id);
         $product->nama=$request->produk;
         if($request->file('foto')!=null){
-            $product->foto=$input['imagename'];
+            $product->foto="https://lizartku.s3.us-east-2.amazonaws.com/images/".$input['imagename'];
         }
         $product->deskripsi=$request->deskripsi;
         $product->harga=$request->harga;
