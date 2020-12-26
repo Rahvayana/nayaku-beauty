@@ -27,8 +27,15 @@
                       <button class="btn btn-info btn-flat" type="button" id="add_input">+</button>
                     </span>
                   </div>
-                  <div class="input-add">
-                    
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kulit</label>
+                    <select name="kulit" id="kulit" class="form-control">
+                      <option value="">Pilih Kulit</option>
+                      <option value="Kulit Normal">Kulit Normal</option>
+                      <option value="Kulit Sensitif">Kulit Sensitif</option>
+                      <option value="Kulit Kering">Kulit Kering</option>
+                      <option value="Kulit Berminyak">Kulit Berminyak</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="kd_perawatan">Kode Perawatan</label>

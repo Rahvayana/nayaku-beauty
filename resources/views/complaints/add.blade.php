@@ -20,6 +20,16 @@
             <form role="form" method="POST" action="{{ route('insert-complaints') }}">
               <div class="box-body">
                 @csrf
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Kulit</label>
+                  <select name="kulit" id="kulit" class="form-control">
+                    <option value="">Pilih Kulit</option>
+                      <option value="Kulit Normal">Kulit Normal</option>
+                      <option value="Kulit Sensitif">Kulit Sensitif</option>
+                      <option value="Kulit Kering">Kulit Kering</option>
+                      <option value="Kulit Berminyak">Kulit Berminyak</option>
+                  </select>
+                </div>
                 <label for="keluhan">Kode Perawatan</label>
                 <div class="input-group input-group-sm">
                   <input type="text" class="form-control" name="keluhan[]" placeholder="Masukkan Keluhan">

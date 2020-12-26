@@ -20,6 +20,7 @@
                 <table class="table table-bordered">
                   <tr>
                     <th style="width: 10px">#</th>
+                    <th>Kulit</th>
                     <th>Perawatan</th>
                     <th>Keluhan</th>
                     <th style="width: 40px">Action</th>
@@ -27,6 +28,7 @@
                   @foreach ($complaints as $complaint)
                   <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td>{{$complaint->kulit}}</td>
                     <td>{{$complaint->nama}}</td>
                     <td>{{$complaint->keluhan}}</td>
                     <td style="display: flex"><a href="{{ route('edit-complaints', $complaint->id) }}"><span class="badge bg-blue"><i class="fa fa-upload"></i></span></a> &nbsp;<a href="#" data-toggle="modal" data-record-id="{{ $complaint->id }}" data-target="#confirm-delete"><span class="badge bg-red"><i class="fa fa-trash-o"></i></span></a></td>
