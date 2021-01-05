@@ -30,7 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     if(Auth::user()->role=='admin'){
         return view('dashboard');
     }else{
-        return redirect()->route('hasil-konsul');
+        return redirect()->route('history');
     }
 })->name('dashboard');
 

@@ -29,16 +29,16 @@
                 <td>{{$history->name}}</td>
             </tr>
             <tr>
-                <td>Keluhan: </td>
-                <td>
-                    @foreach (explode(',',$history->complaint) as $item)
-                        <span class="badge bg-blue">{{$item}}</span>
-                    @endforeach
-                </td>
+                <td>Kulit: </td>
+                <td>{{$history->type}}</td>
             </tr>
             <tr>
                 <td>Perawatan: </td>
                 <td>{{$history->treatment}}</td>
+            </tr>
+            <tr>
+                <td>Produk: </td>
+                <td>{{$history->hasil}}</td>
             </tr>
             <tr>
                 <td>Tanggal: </td>

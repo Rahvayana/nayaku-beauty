@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="box">
-              <div class="box-header">
+              {{-- <div class="box-header">
                 <form action="{{ route('history') }}" method="GET" style="display: flex">
                   <select name="type" id="type" class="form-control">
                     @if (isset($_GET['type'])&&$_GET['type']==null)
@@ -36,14 +36,15 @@
                   </select>
                   <input type="submit" name="submit" class="btn btn-success"/>
                 </form>
-              </div><!-- /.box-header -->
+              </div><!-- /.box-header --> --}}
               <div class="box-body">
                 <table class="table table-bordered">
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Nama</th>
-                    <th>Keluhan</th>
-                    <th>Perawatan/Produk</th>
+                    <th>Kulit</th>
+                    <th>Perawatan</th>
+                    <th>Produk</th>
                     <th>Tanggal</th>
                     <th style="width: 40px">Action</th>
                   </tr>
@@ -51,12 +52,9 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$history->name}}</td>
-                    <td>
-                        @foreach (explode(',',$history->complaint) as $item)
-                            <span class="badge bg-blue">{{$item}}</span>
-                        @endforeach
-                    </td>
+                    <td>{{$history->type}}</td>
                     <td>{{$history->treatment}}</td>
+                    <td>{{$history->hasil}}</td>
                     <td>{{date_format(date_create($history->created_at),"l, d m Y")}}</td>
                     <td style="display: flex"><a href="{{ route('history-detail', $history->id) }}"><span class="badge bg-blue"><i class="fa fa-eye"></i></span></a> </td>
                   </tr>
