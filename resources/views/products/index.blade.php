@@ -2,11 +2,11 @@
     <section class="content-header">
         <h1>
           Dashboard
-          <small>Treatments</small>
+          <small>Products</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Treatments</li>
+          <li class="active">Products</li>
         </ol>
       </section>
       <section class="content">

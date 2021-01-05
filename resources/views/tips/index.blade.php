@@ -2,11 +2,11 @@
     <section class="content-header">
         <h1>
           Dashboard
-          <small>History</small>
+          <small>Tips</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">History</li>
+          <li class="active">Tips</li>
         </ol>
       </section>
       <section class="content">

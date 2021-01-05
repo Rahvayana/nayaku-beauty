@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Tambah Treatment</h3>
+              <h3 class="box-title">Tambah Complaint</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="POST" action="{{ route('insert-complaints') }}">
