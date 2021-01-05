@@ -124,22 +124,24 @@
               <a href="{{ route('products') }}">
                   <i class="fa  fa-shopping-cart"></i> <span>Products</span>
               </a>
+              <a href="{{ route('tips') }}">
+                <i class="fa  fa-book"></i> <span>Tips</span>
+              </a>
+              <a href="{{ route('contacts') }}">
+                <i class="fa fa-cog"></i> <span>Contacts</span>
+              </a>
+              <a href="{{ route('rules') }}">
+                <i class="fa fa-clipboard"></i> <span>Rules</span>
+              </a>                  
               <a href="{{ route('history') }}">
                   <i class="fa  fa-history"></i> <span>History</span>
               </a>
-              <a href="{{ route('tips') }}">
-                  <i class="fa  fa-book"></i> <span>Tips</span>
+              @else
+              <a href="{{ route('history') }}">
+                  <i class="fa  fa-history"></i> <span>History</span>
               </a>
-              <a href="{{ route('contacts') }}">
-                  <i class="fa fa-cog"></i> <span>Contacts</span>
-              </a>
-              <a href="{{ route('rules') }}">
-                  <i class="fa fa-clipboard"></i> <span>Rules</span>
-              </a>                  
-              @endif
-              <a href="{{ route('hasil-konsul') }}">
-                  <i class="fa fa-clipboard"></i> <span>Hasil Konsul</span>
-              </a>                  
+              @endif             
+              
             </li>
         </ul>
         </section>

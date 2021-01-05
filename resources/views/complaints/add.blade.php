@@ -30,7 +30,7 @@
                       <option value="Kulit Berminyak">Kulit Berminyak</option>
                   </select>
                 </div>
-                <label for="keluhan">Kode Perawatan</label>
+                <label for="keluhan">Keluhan</label>
                 <div class="input-group input-group-sm">
                   <input type="text" class="form-control" name="keluhan[]" placeholder="Masukkan Keluhan">
                   <span class="input-group-btn">
@@ -39,15 +39,6 @@
                 </div>
                 <div class="input-add">
                   
-                </div>
-                <div class="form-group">
-                  <label for="kd_perawatan">Kode Perawatan</label>
-                  <select name="perawatan" id="perawatan" class="form-control">
-                    <option value="">Pilih Perawatan</option>
-                    @foreach ($treatments as $treatment)
-                        <option value="{{$treatment->kd_treatment}}">{{$treatment->nama}}</option>
-                    @endforeach
-                  </select>
                 </div>
               </div><!-- /.box-body -->
     

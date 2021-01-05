@@ -22,31 +22,17 @@
                     <th style="width: 10px">#</th>
                     <th>Kode Rule</th>
                     <th>Kulit</th>
-                    <th>Rule 1</th>
-                    <th>Rule 2</th>
-                    <th>Rule 3</th>
+                    <th>Rule</th>
                     <th>Perawatan</th>
                     <th style="width: 40px">Action</th>
                   </tr>
                   @foreach ($rules as $rule)
                   <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td style="background-color: #f5429b">{{$rule->kd_rule}}</td>
-                    <td>
-                      @if ($rule->hasil==1)
-                          Kulit Normal
-                      @elseif($rule->hasil==2)
-                          Kulit Sensitif
-                      @elseif($rule->hasil==3)
-                          Kulit Kering
-                      @else
-                          Kulit Berminyak
-                      @endif
-                    </td>
+                    <td>{{$rule->kd_rule}}</td>
+                    <td>{{$rule->kulit}}</td>
                     <td>{{$rule->rule1}}</td>
-                    <td>{{$rule->rule2}}</td>
-                    <td>{{$rule->rule3}}</td>
-                    <td>{{$rule->rule4}}</td>
+                    <td>{{$rule->hasil}}</td>
                     <td style="display: flex"><a href="#" data-toggle="modal" data-record-id="{{ $rule->id }}" data-target="#confirm-delete"><span class="badge bg-red"><i class="fa fa-trash-o"></i></span></a> </td>
                   </tr>
                   @endforeach
@@ -112,4 +98,5 @@
       $('.title', this).text(data.recordTitle);
       $('.btn-ok', this).data('recordId', data.recordId);
   });
+  
 </script>

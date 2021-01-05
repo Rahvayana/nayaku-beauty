@@ -45,11 +45,9 @@ class RuleController extends Controller
     {
         $rule=new Rule();
         $rule->kd_rule=$request->kd_rule;
-        $rule->hasil=$request->kulit;
-        $rule->rule1=$request->rule1;
-        $rule->rule2=$request->rule2;
-        $rule->rule3=$request->rule3;
-        $rule->rule4=$request->hasil;
+        $rule->kulit=$request->kulit;
+        $rule->rule1=json_encode($request->rule);
+        $rule->hasil=$request->hasil;
         $rule->save();
         return redirect()->route('rules');
     }
@@ -60,9 +58,10 @@ class RuleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function allKulit(Request $request)
     {
-        //
+        $data=DB::table('complaints')->select('keluhan')->where('kulit',$request->kulit)->get();
+        return response($data);
     }
 
     /**

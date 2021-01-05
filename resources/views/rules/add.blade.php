@@ -22,56 +22,33 @@
                   @csrf
                   <div class="form-group">
                     <label for="exampleInputEmail1">Kode Rule</label>
-                    <input type="text" name="kd_rule" id="kd_rule" class="form-control">
+                    <input type="text" name="kd_rule" required id="kd_rule" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Kulit</label>
                     <select name="kulit" id="kulit" class="form-control">
                       <option value="">Pilih Kulit</option>
-                      <option value="1">Kulit Normal</option>
-                      <option value="2">Kulit Sensitif</option>
-                      <option value="3">Kulit Kering</option>
-                      <option value="4">Kulit Berminyak</option>
+                      <option value="Kulit Normal">Kulit Normal</option>
+                      <option value="Kulit Sensitif">Kulit Sensitif</option>
+                      <option value="Kulit Kering">Kulit Kering</option>
+                      <option value="Kulit Berminyak">Kulit Berminyak</option>
                     </select>
+                   
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Rule 1</label>
-                    <select name="rule1" id="rule1" class="form-control">
-                      <option value="">Pilih Rule</option>
-                      @foreach ($complaints as $complaint)
-                          <option value="{{$complaint->keluhan}}">{{$complaint->keluhan}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Rule 2</label>
-                    <select name="rule2" id="rule2" class="form-control">
-                      <option value="">Pilih Rule</option>
-                      @foreach ($complaints as $complaint)
-                          <option value="{{$complaint->keluhan}}">{{$complaint->keluhan}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Rule 3</label>
-                    <select name="rule3" id="rule3" class="form-control">
-                      <option value="">Pilih Rule</option>
-                      @foreach ($complaints as $complaint)
-                          <option value="{{$complaint->keluhan}}">{{$complaint->keluhan}}</option>
-                      @endforeach
-                    </select>
+                    <label for="exampleInputEmail1">Rule</label>
+                    <div id="checkbox"></div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Perawatan</label>
-                    <select name="hasil" id="hasil" class="form-control">
-                      <option value="">Pilih Rule</option>
+                    <select name="hasil" id="kulit" class="form-control">
+                      <option value="">Pilih Perawatan</option>
                       @foreach ($treatments as $treatment)
                           <option value="{{$treatment->nama}}">{{$treatment->nama}}</option>
                       @endforeach
                     </select>
-                  </div>
-                </div><!-- /.box-body -->
-      
+                  </div>  
+                  <meta name="csrf-token" content="{{ csrf_token() }}" />
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
@@ -81,3 +58,43 @@
      </div>
     </section>
   </x-dashboard-layout>
+<script>
+    $("#kulit").change(function() {
+        var provid = $("#kulit").val();
+        console.log(provid)
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if(provid){
+        $.ajax({
+            type: 'POST',
+            url: '/allcomplaints/',
+            dataType: 'json',
+            data:{
+              kulit: provid, // Second add quotes on the value.
+            },
+            success: function(data) {
+                $("#checkbox").empty();
+                for (let i = 0; i < data.length; i++) {
+                console.log(data[i].keluhan)
+                    // $("#checkbox").append("<div class='form-check'>");
+                    $("#checkbox").append("\
+                    <div class='form-check'>\
+                      <input type='checkbox' id='rule"+i+"' class='form-check-input' name='rule[]' value="+ data[i].keluhan +">\
+                      <label for='rule"+i+"' class='form-check-label'> "+data[i].keluhan+" </label> \
+                    </div>");
+                    document.getElementById("rule"+i+"").value = data[i].keluhan;
+                    // $("#checkbox").append("</div>")
+
+                }
+                // console.log(data);
+            },
+            error: function(data) {
+                // console.log(data);
+            }
+        });
+        }
+    });
+</script>

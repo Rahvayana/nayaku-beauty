@@ -25,13 +25,12 @@ class ComplaintController extends Controller
 
     public function store(Request $request)
     {
-        
         foreach($request->keluhan as $keluhan){
             
             $complaint=new Complaint();
             $complaint->kulit=$request->kulit;
             $complaint->keluhan=$keluhan;
-            $complaint->kd_treatment=$request->perawatan;
+            $complaint->kd_treatment='A';
             $complaint->save();
         }
         

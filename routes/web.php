@@ -85,5 +85,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('Deleterules/{id}',[RuleController::class,'destroy'])->name('delete-rules');
     
     Route::get('hasilKonsul',[RuleController::class,'hasil'])->name('hasil-konsul');
+    Route::post('allcomplaints',[RuleController::class,'allKulit'])->name('all-konsul');
 
 });
