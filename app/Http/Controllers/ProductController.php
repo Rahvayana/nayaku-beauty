@@ -32,7 +32,7 @@ class ProductController extends Controller
         ]);
         $image = $request->file('foto');
         $input['imagename'] = time().'.'.$image->extension();
-        $normal = Image::make($image)->resize(100, 100)->encode($image->extension());
+        $normal = Image::make($image)->resize(512, 512)->encode($image->extension());
         Storage::disk('s3')->put('/images/'.$input['imagename'], (string)$normal, 'public');
 
         $product = new Products();
