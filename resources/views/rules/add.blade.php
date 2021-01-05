@@ -70,7 +70,7 @@
         if(provid){
         $.ajax({
             type: 'POST',
-            url: '/allcomplaints/',
+            url: '{{url('allcomplaints')}}',
             dataType: 'json',
             data:{
               kulit: provid, // Second add quotes on the value.
