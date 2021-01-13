@@ -39,8 +39,8 @@ class ComplaintController extends Controller
 
     public function edit($id)
     {
-        $data['treatments']=Treatment::all();
         $data['complaint']=Complaint::find($id);
+        // dd($data);
         return view('complaints.edit',$data);
     }
 
@@ -50,7 +50,7 @@ class ComplaintController extends Controller
         $complaint=Complaint::find($id);
         $complaint->keluhan=$request->keluhan;
         $complaint->kulit=$request->kulit;
-        $complaint->kd_treatment=$request->perawatan;
+        $complaint->kd_treatment=1;
         $complaint->save();        
         return redirect()->route('complaints');
     }

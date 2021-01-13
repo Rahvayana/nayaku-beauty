@@ -37,19 +37,6 @@
                       <option value="Kulit Berminyak">Kulit Berminyak</option>
                     </select>
                   </div>
-                  <div class="form-group">
-                    <label for="kd_perawatan">Kode Perawatan</label>
-                    <select name="perawatan" id="perawatan" class="form-control">
-                      <option value="">Pilih Perawatan</option>
-                      @foreach ($treatments as $treatment)
-                          @if ($treatment->kd_treatment==$complaint->kd_treatment)
-                          <option value="{{$treatment->kd_treatment}}" selected>{{$treatment->nama}}</option>
-                          @else
-                          <option value="{{$treatment->kd_treatment}}">{{$treatment->nama}}</option>
-                          @endif
-                      @endforeach
-                    </select>
-                  </div>
                 </div><!-- /.box-body -->
       
                 <div class="box-footer">
